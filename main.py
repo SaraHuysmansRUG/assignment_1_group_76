@@ -32,11 +32,15 @@ def main() -> None:
     print("Ground truth:", y)
     print("Predicted value:", predictions)
     
-    # compare our model with sklearn
+    # Compare our model with sklearn
     sklearn_model = LinearRegression()
     sklearn_model.fit(X, y)
-    compare_model = ModelComparer(model, sklearn_model)
-    compare_model.compare(X, y)   
+    print("Our model coefficients:", (model._intercept))
+    print("Sklearn model coefficients:", [sklearn_model.intercept_, *sklearn_model.coef_])
+    our_predictions = model.predict(X)
+    sklearn_predictions = sklearn_model.predict(X)
+    print("MSE our model:",  mean_squared_error(y, our_predictions))
+    print("MSE sklearn model:", mean_squared_error(y, sklearn_predictions))  
 
     # Plot the regression line
     plotter.set_data(X, y)
