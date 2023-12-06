@@ -5,11 +5,10 @@ Plotting the regression line(s) and plane is also possible.
 There is also the possibility to save the model coefficients in either json or csv format.
 '''
 
-from multiple_linear_regression import MultipleLinearRegression
-from sklearn.linear_model import LinearRegression
-from regression_plotter import RegressionPlotter
-from compare_with_sklearn import ModelComparer
-from model_saver import ModelSaver
+from src.multiple_linear_regression import MultipleLinearRegression
+from src.sklearn.linear_model import LinearRegression
+from src.regression_plotter import RegressionPlotter
+from src.model_saver import ModelSaver
 
 def main() -> None:
     model = MultipleLinearRegression(dataset_name='breast_cancer')
